@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clássica — Água Mineral Fluoretada</title>
+<meta name="description" content="Clássica: água mineral natural fluoretada no copo de 200 ml e no galão. Praticidade e qualidade pra beber bem em qualquer lugar. Viver é o melhor sabor." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Clássica — Água Mineral Fluoretada" />
+<meta property="og:description" content="Água mineral natural fluoretada no copo de 200 ml e no galão. Viver é o melhor sabor." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/cena-gelo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --marinho:#16357a;
+    --marinho-fundo:#0f2456;
+    --azul:#2a6fd6;
+    --azul-claro:#e8f4fc;
+    --azul-agua:#f3f9fe;
+    --vermelho:#d81f32;
+    --vermelho-escuro:#b3121f;
+    --branco:#ffffff;
+    --texto:#33465f;
+    --texto-suave:#6a7a93;
+    --borda:#dce8f4;
+
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Mulish",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+    --radius:18px;
+    --maxw:1140px;
+    --gutter:clamp(20px,5vw,40px);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    font-family:var(--sans);
+    color:var(--texto);
+    background:var(--branco);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block}
+
+  a{color:inherit;text-decoration:none}
+
+  h1,h2,h3{
+    font-family:var(--serif);
+    color:var(--marinho);
+    line-height:1.08;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin-inline:auto;
+    padding-inline:var(--gutter);
+  }
+
+  section{padding-block:clamp(56px,9vw,104px)}
+
+  /* ---------- Botões ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-family:var(--sans);font-weight:800;font-size:1rem;
+    padding:.85em 1.5em;border-radius:999px;
+    cursor:pointer;border:2px solid transparent;
+    transition:transform .15s ease,background .2s ease,color .2s ease,box-shadow .2s ease;
+  }
+  .btn--zap{
+    background:var(--vermelho);color:#fff;
+    box-shadow:0 10px 24px -10px rgba(216,31,50,.7);
+  }
+  .btn--zap:hover{background:var(--vermelho-escuro);transform:translateY(-2px)}
+  .btn--ghost{
+    background:transparent;color:var(--marinho);border-color:var(--borda);
+  }
+  .btn--ghost:hover{border-color:var(--azul);color:var(--azul)}
+  .btn svg{width:1.15em;height:1.15em;flex:0 0 auto}
+
+  /* ---------- Cabeçalho ---------- */
+  header.topo{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--borda);
+  }
+  .topo .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;min-height:68px;
+  }
+  .marca{display:flex;align-items:center;gap:12px}
+  .marca img{height:38px;width:auto}
+  nav.menu{display:flex;align-items:center;gap:28px}
+  nav.menu a{font-weight:700;font-size:.95rem;color:var(--marinho)}
+  nav.menu a:hover{color:var(--vermelho)}
+  .menu-cta{display:inline-flex}
+  .burger{display:none;background:none;border:0;cursor:pointer;color:var(--marinho)}
+
+  @media(max-width:860px){
+    nav.menu a:not(.menu-cta){display:none}
+  }
+  @media(max-width:520px){
+    .menu-cta{display:none}
+  }
+
+  /* ---------- Herói ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 85% 0%,#ffffff 0%,var(--azul-claro) 55%,#d7ecfb 100%);
+    padding-block:clamp(40px,7vw,76px);
+  }
+  .hero::before{ /* ondas de água sutis */
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(60% 40% at 15% 90%,rgba(42,111,214,.12),transparent 70%),
+      radial-gradient(50% 35% at 95% 60%,rgba(42,111,214,.10),transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;display:grid;gap:clamp(24px,5vw,56px);
+    grid-template-columns:1.05fr .95fr;align-items:center;
+  }
+  .hero-selo{
+    display:inline-flex;align-items:center;gap:9px;
+    background:#fff;border:1px solid var(--borda);
+    padding:.4em .9em .4em .5em;border-radius:999px;
+    font-weight:800;font-size:.8rem;color:var(--marinho);
+    letter-spacing:.01em;box-shadow:0 6px 18px -12px rgba(15,36,86,.5);
+  }
+  .hero-selo .ponto{width:9px;height:9px;border-radius:50%;background:var(--vermelho);
+    box-shadow:0 0 0 4px rgba(216,31,50,.15)}
+  .hero h1{
+    font-size:clamp(2.5rem,6.2vw,4.3rem);margin:.5em 0 .35em;
+  }
+  .hero h1 .assinatura{
+    display:block;font-style:italic;font-weight:500;
+    font-size:clamp(1.3rem,3vw,2rem);color:var(--vermelho);
+    letter-spacing:.005em;margin-top:.1em;
+  }
+  .hero p.lead{
+    font-size:clamp(1.05rem,1.4vw,1.2rem);max-width:46ch;
+    color:var(--texto);
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:2em}
+
+  .hero-foto{position:relative;justify-self:center}
+  .hero-foto img{
+    width:min(380px,78vw);
+    filter:drop-shadow(0 34px 40px rgba(15,36,86,.28));
+    animation:flutua 6s ease-in-out infinite;
+  }
+  .hero-foto .halo{
+    position:absolute;inset:auto 0 6% 0;margin-inline:auto;
+    width:62%;height:40px;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(15,36,86,.22),transparent);
+    filter:blur(4px);z-index:-1;
+  }
+  @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  @media(max-width:760px){
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero p.lead{margin-inline:auto}
+    .hero-ctas{justify-content:center}
+    .hero-selo{margin-inline:auto}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hero-foto img{animation:none}
+  }
+
+  /* ---------- Faixa de números ---------- */
+  .faixa{background:var(--marinho-fundo);color:#fff}
+  .faixa .wrap{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:clamp(18px,4vw,40px);padding-block:clamp(34px,5vw,48px);
+  }
+  .stat{text-align:center}
+  .stat b{
+    display:block;font-family:var(--serif);font-weight:700;
+    font-size:clamp(1.9rem,4vw,2.7rem);line-height:1;color:#fff;
+  }
+  .stat span{display:block;margin-top:.5em;font-size:.86rem;
+    color:#b9c8e6;font-weight:600;letter-spacing:.01em}
+  .stat b em{font-style:normal;color:#ff9aa5}
+  @media(max-width:620px){
+    .faixa .wrap{grid-template-columns:repeat(3,1fr);gap:14px}
+    .stat span{font-size:.76rem}
+  }
+
+  /* ---------- Seção padrão com cabeçalho ---------- */
+  .eyebrow{
+    display:inline-block;font-weight:800;color:var(--vermelho);
+    font-size:.95rem;margin-bottom:.6em;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:22px;height:2px;
+    background:var(--vermelho);vertical-align:middle;margin-right:.6em}
+
+  /* Sobre */
+  .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .sobre h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:.5em}
+  .sobre p{margin-bottom:1em;max-width:54ch}
+  .sobre .foto{
+    border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(15,36,86,.5);
+    position:relative;
+  }
+  .sobre .foto img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+  @media(max-width:760px){.sobre-grid{grid-template-columns:1fr}
+    .sobre .foto{order:-1}}
+
+  /* ---------- Produtos ---------- */
+  .produtos{background:var(--azul-agua);border-block:1px solid var(--borda)}
+  .produtos .cab{max-width:48ch;margin-bottom:clamp(30px,5vw,52px)}
+  .produtos h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,30px)}
+  .card-prod{
+    background:#fff;border:1px solid var(--borda);border-radius:var(--radius);
+    padding:clamp(26px,4vw,38px);display:flex;flex-direction:column;
+    gap:10px;position:relative;overflow:hidden;
+  }
+  .card-prod .img{
+    height:230px;display:flex;align-items:center;justify-content:center;
+    margin-bottom:12px;
+  }
+  .card-prod .img img{max-height:230px;width:auto;
+    filter:drop-shadow(0 20px 26px rgba(15,36,86,.2))}
+  .card-prod .galao{
+    height:230px;width:100%;border-radius:12px;
+    background:
+      linear-gradient(160deg,#eaf4fd,#cfe7fa);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:10px;color:var(--marinho);border:1px dashed #a9cdf0;margin-bottom:12px;
+  }
+  .card-prod .galao svg{width:72px;height:72px;opacity:.85}
+  .card-prod .galao small{font-weight:700;font-size:.78rem;color:var(--azul)}
+  .card-prod h3{font-size:1.45rem}
+  .card-prod .vol{font-weight:800;color:var(--vermelho);font-size:.9rem;margin-bottom:.2em}
+  .card-prod p{font-size:.98rem;color:var(--texto)}
+  @media(max-width:620px){.cards{grid-template-columns:1fr}
+    .card-prod .img,.card-prod .galao{height:200px}}
+
+  /* ---------- Qualidade / selos ---------- */
+  .qual .cab{max-width:52ch;margin-bottom:clamp(32px,5vw,56px)}
+  .qual h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+  .selos{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,3vw,34px)}
+  .selo{text-align:left}
+  .selo .marca-selo{
+    width:74px;height:74px;border-radius:50%;
+    background:var(--vermelho);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;box-shadow:0 14px 26px -12px rgba(216,31,50,.7);
+    position:relative;
+  }
+  .selo .marca-selo::after{content:"";position:absolute;inset:6px;border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.5)}
+  .selo .marca-selo svg{width:34px;height:34px;position:relative;z-index:1}
+  .selo h3{font-size:1.18rem;margin-bottom:.35em}
+  .selo p{font-size:.92rem;color:var(--texto-suave)}
+  @media(max-width:860px){.selos{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.selos{grid-template-columns:1fr}}
+
+  /* ---------- Faixa lifestyle ---------- */
+  .lifestyle{
+    position:relative;min-height:clamp(340px,52vw,480px);
+    display:flex;align-items:center;color:#fff;
+    background:
+      linear-gradient(90deg,rgba(15,36,86,.82),rgba(15,36,86,.25) 70%),
+      center/cover no-repeat url("assets/cena-amigos.png");
+    padding-block:0;
+  }
+  .lifestyle blockquote{max-width:30ch}
+  .lifestyle blockquote p{
+    font-family:var(--serif);font-weight:600;color:#fff;
+    font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;
+  }
+  .lifestyle blockquote cite{
+    display:block;margin-top:1em;font-style:normal;font-family:var(--sans);
+    font-weight:700;font-size:.95rem;color:#cdddf7;
+  }
+
+  /* ---------- Contato ---------- */
+  .contato{background:var(--azul-agua)}
+  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:center}
+  .contato h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-bottom:.4em}
+  .contato p.sub{max-width:44ch;margin-bottom:1.6em}
+  .contato-lista{list-style:none;display:grid;gap:14px}
+  .contato-lista li{display:flex;align-items:center;gap:14px;font-weight:600;color:var(--marinho)}
+  .contato-lista li svg{width:22px;height:22px;color:var(--vermelho);flex:0 0 auto}
+  .contato-card{
+    background:var(--marinho-fundo);color:#fff;border-radius:var(--radius);
+    padding:clamp(30px,5vw,44px);text-align:center;
+  }
+  .contato-card h3{color:#fff;font-size:1.6rem;margin-bottom:.4em}
+  .contato-card p{color:#c3d2ee;margin-bottom:1.6em;font-size:.98rem}
+  .contato-card .btn--zap{width:100%;justify-content:center}
+  .contato-card .obs{margin-top:1.2em;font-size:.8rem;color:#8ea3cf}
+  @media(max-width:760px){.contato-grid{grid-template-columns:1fr}}
+
+  /* ---------- Rodapé ---------- */
+  footer.rodape{background:var(--marinho-fundo);color:#b9c8e6;padding-block:48px 34px}
+  .rodape .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+  .rodape .marca{color:#fff}
+  .rodape .marca img{height:54px;width:auto}
+  .rodape .assin{font-family:var(--serif);font-style:italic;color:#ff9aa5;font-size:1.05rem}
+  .rodape .legal{width:100%;border-top:1px solid rgba(255,255,255,.12);
+    margin-top:12px;padding-top:20px;font-size:.82rem;color:#8ea3cf;
+    display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+  /* marcador de conteúdo a preencher */
+  .todo{color:var(--vermelho);font-weight:800}
+</style>
+</head>
+<body>
+
+<!-- ======= CABEÇALHO ======= -->
+<header class="topo">
+  <div class="wrap">
+    <a href="#inicio" class="marca">
+      <img src="assets/logo-horizontal.png" alt="Clássica — Água Mineral Fluoretada" />
+    </a>
+    <nav class="menu">
+      <a href="#sobre">A marca</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#qualidade">Qualidade</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn--zap menu-cta" href="https://wa.me/5565999625352" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======= HERÓI ======= -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <span class="hero-selo"><span class="ponto"></span>Água mineral natural fluoretada</span>
+      <h1>
+        A pureza que já<br>faz parte do seu dia.
+        <span class="assinatura">Viver é o melhor sabor</span>
+      </h1>
+      <p class="lead">
+        A água Clássica chega até você no copo de 200 ml lacrado e no galão —
+        prática pra levar, confiável pra servir. A mesma qualidade, em todo gole.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn--zap" href="https://wa.me/5565999625352" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Pedir pelo WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#produtos">Ver os produtos</a>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <img src="assets/copo-gelado.png" alt="Copo de água mineral Clássica 200 ml gelado, com gotas de condensação e lacre vermelho" />
+      <span class="halo"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FAIXA DE NÚMEROS ======= -->
+<div class="faixa">
+  <div class="wrap">
+    <div class="stat"><b>200 ml</b><span>copo lacrado e prático</span></div>
+    <div class="stat"><b>20 L</b><span>galão pra casa e trabalho</span></div>
+    <div class="stat"><b>100%</b><span>água mineral natural</span></div>
+  </div>
+</div>
+
+<!-- ======= A MARCA ======= -->
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div>
+      <span class="eyebrow">A marca</span>
+      <h2>Uma água que você já conhece — e pode confiar.</h2>
+      <p>
+        A Clássica nasceu pra fazer o simples muito bem feito: entregar água mineral
+        de verdade, pura e segura, do jeito mais prático pro seu dia. É a água que
+        está na mesa do almoço, na geladeira de casa, no balcão da loja e na hora de
+        matar a sede no calor.
+      </p>
+      <p>
+        Cada copo sai lacrado, com a qualidade conferida e o cuidado de quem leva a
+        sério o que você bebe. Por trás da assinatura <em>“Viver é o melhor sabor”</em>
+        existe um compromisso: água boa, no copo ou no galão, sempre igual.
+      </p>
+    </div>
+    <div class="foto">
+      <img src="assets/marca.png" alt="Galão Clássica de 20 litros ao ar livre" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ======= PRODUTOS ======= -->
+<section class="produtos" id="produtos">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Produtos</span>
+      <h2>Dois formatos, a mesma água.</h2>
+      <p>Escolha a Clássica do jeito que faz sentido pra você — pra levar na mão ou pra abastecer o dia a dia.</p>
+    </div>
+    <div class="cards">
+      <article class="card-prod">
+        <div class="img">
+          <img src="assets/copo.png" alt="Copo Clássica 200 ml" loading="lazy" />
+        </div>
+        <span class="vol">200 ml · sem gás</span>
+        <h3>Copo lacrado</h3>
+        <p>
+          Prático e higiênico, com lacre de segurança. Perfeito pra eventos, reuniões,
+          escolas, consultórios e pra levar pra qualquer lugar. Abre, bebe, pronto.
+        </p>
+      </article>
+      <article class="card-prod">
+        <div class="img">
+          <img src="assets/galao.jpg" alt="Galão Clássica de 20 litros" loading="lazy" />
+        </div>
+        <span class="vol">20 litros · sem gás</span>
+        <h3>Galão retornável</h3>
+        <p>
+          O abastecimento da casa, do escritório e dos eventos com a praticidade do
+          galão de 20 litros. A mesma água mineral, com a confiança da marca que
+          você já conhece.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======= QUALIDADE ======= -->
+<section class="qual" id="qualidade">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Qualidade</span>
+      <h2>O cuidado está em cada etapa.</h2>
+      <p>Da fonte ao lacre, a Clássica segue um padrão pra chegar até você do jeito certo: água mineral de verdade, limpa e segura.</p>
+    </div>
+    <div class="selos">
+      <div class="selo">
+        <div class="marca-selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 5 6 11a6 6 0 01-12 0c0-6 6-11 6-11z"/></svg></div>
+        <h3>Água mineral natural</h3>
+        <p>Mineralidade da natureza, sem alteração do que importa: pureza e sabor leve.</p>
+      </div>
+      <div class="selo">
+        <div class="marca-selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.8-4 3.9.9 5.5L12 20l-5 2.6.9-5.5-4-3.9 5.6-.8z"/></svg></div>
+        <h3>Fluoretada</h3>
+        <p>Com flúor na medida certa, contribuindo pra saúde de quem bebe todos os dias.</p>
+      </div>
+      <div class="selo">
+        <div class="marca-selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 118 0v3"/></svg></div>
+        <h3>Lacre de segurança</h3>
+        <p>Cada copo chega fechado e intacto — você é a primeira pessoa a abrir.</p>
+      </div>
+      <div class="selo">
+        <div class="marca-selo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></div>
+        <h3>Controle de qualidade</h3>
+        <p>Produção acompanhada de perto pra manter o mesmo padrão em todo lote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= LIFESTYLE ======= -->
+<section class="lifestyle" aria-label="A Clássica no dia a dia">
+  <div class="wrap">
+    <blockquote>
+      <p>Da mesa do almoço ao churrasco com os amigos, tem Clássica.</p>
+      <cite>Água mineral Clássica · Viver é o melhor sabor</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ======= CONTATO ======= -->
+<section class="contato" id="contato">
+  <div class="wrap contato-grid">
+    <div>
+      <span class="eyebrow">Contato</span>
+      <h2>Quer Clássica perto de você?</h2>
+      <p class="sub">Fale com a gente pra comprar, revender ou tirar dúvidas. Atendemos lojas, eventos e pedidos pra casa.</p>
+      <ul class="contato-lista">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="https://wa.me/5565999625352" target="_blank" rel="noopener">(65) 99962-5352</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Várzea Grande – MT</span>
+        </li>
+      </ul>
+    </div>
+    <div class="contato-card">
+      <h3>Peça agora</h3>
+      <p>Chama no WhatsApp e receba a Clássica com rapidez e atendimento de quem conhece a marca.</p>
+      <a class="btn btn--zap" href="https://wa.me/5565999625352" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= RODAPÉ ======= -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="marca">
+      <img src="assets/logo-horizontal-branco.png" alt="Clássica — Água Mineral Fluoretada" />
+    </div>
+    <span class="assin">Viver é o melhor sabor</span>
+    <div class="legal">
+      <span>© <span id="ano"></span> Água Mineral Clássica · Água mineral natural fluoretada.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
